@@ -68,7 +68,6 @@
           buildInputs = with pkgs; [
             openssl
             pkg-config
-            rust-analyzer-nightly
             packages.octerm
             lldb
 
