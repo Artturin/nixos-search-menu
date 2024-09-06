@@ -48,7 +48,7 @@
             ];
             overrideMain = _: {
               postInstall = ''
-                wrapProgram $out/bin/nixos-menu-search \
+                wrapProgram $out/bin/nixos-search-menu \
                   --prefix PATH : ${pkgs.lib.makeBinPath [ packages.octerm ]}
               '';
             };
@@ -65,11 +65,17 @@
         };
 
         devShell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            cargo
+            cargo-edit
+            rustc
+            rustfmt
+            rustPackages.clippy
+            pkg-config
+          ];
           buildInputs = with pkgs; [
             openssl
-            pkg-config
             packages.octerm
-            lldb
 
           ];
           RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;

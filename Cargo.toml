@@ -1,5 +1,5 @@
 [package]
-name = "nixos-menu-search"
+name = "nixos-search-menu"
 version = "0.1.0"
 edition = "2021"
 
