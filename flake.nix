@@ -39,7 +39,10 @@
 
         packages = utils.lib.flattenTree {
           default = naersk.lib.${system}.buildPackage {
-            src = ./.;
+          src = builtins.path {
+            name = "nixos-search-menu-source";
+            path = ./.;
+          };
             #copyLibs = true;
             nativeBuildInputs = with pkgs; [ makeWrapper ];
             buildInputs = with pkgs; [
